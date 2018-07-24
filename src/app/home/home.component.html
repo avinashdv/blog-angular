@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row" *ngIf="allBlogs.length>0">
+    <div class="col-md-4 mb-4" *ngFor="let blog of allBlogs">
+      <div class="card">
+        <h5 class="card-header">{{blog.title}}</h5>
+        <div class="card-body">
+          <h5 class="card-title">{{blog.subHeading}}</h5>
+          <p class="card-text text-truncate py-5 px-2" [innerHtml]='[blog.bodyHtml]'></p>
+          <a [routerLink]="['/blog', blog.blogId]" class="btn btn-primary">Read...</a>
+        </div>
+        <div class="card-footer">
+          <h6 class="d-flex justify-content-between">
+            <b>Author:
+              <span class="font-weight-light">{{blog.author}}</span>
+            </b>
+            <span>{{blog.created | date}}</span>
+          </h6>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

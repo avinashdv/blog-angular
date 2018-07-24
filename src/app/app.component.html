@@ -1,0 +1,33 @@
+<div class="container pb-5">
+  <div class="text-center p-3 bg-dark text-white">
+    Edwisor
+  </div>
+
+  <nav class="navbar navbar-expand-md bg-light text-dark">
+    <!-- Brand -->
+    <a class="navbar-brand" [routerLink]="['/home']">Blog Application</a>
+
+    <!-- Toggler/collapsibe Button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse d-flex justify-content-end pr-3" id="collapsibleNavbar">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="#">About Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Create</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
+
+<!--  when the browser URL for this application becomes /home
+the router matches that URL to the route path /home and displays the Home page after a RouterOutlet -->
+<router-outlet></router-outlet>
+
+<!-- The path, for ex: home component will be displayed below the router-outlet. -->

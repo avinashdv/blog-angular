@@ -1,0 +1,39 @@
+<div class="container" *ngIf="currentBlog">
+  <div class="text-center">
+    <h3 class="font-weight-bold">{{currentBlog.title}}</h3>
+    <div class="py-3">
+      <h5 class="lead pb-2">{{currentBlog.subHeading}}</h5>
+      <p class="py-3 text-truncate" [innerHtml]="[currentBlog.bodyHtml]"></p>
+      <!-- We can display the html using the above -->
+      <!-- OR -->
+
+      <!-- We can display the normal text in normal way. -->
+      <!-- <p class="py-3">{{currentBlog.bodyHtml}}</p> -->
+
+      <p *ngIf="currentBlog.tags.length !=undefined && currentBlog.tags.length > 0">Tags:
+        <span *ngFor="let tag of currentBlog.tags; let first=first; let last=last"> {{tag}}{{last ? '': ', '}} </span>
+      </p>
+      <h6>
+        <b>Author:
+          <span class="font-weight-light">{{currentBlog.author}}</span>
+        </b>
+      </h6>
+      <p>
+        <span>
+          <b>{{currentBlog.created | date}}</b>
+        </span>
+      </p>
+    </div>
+  </div>
+  <div class="row d-flex text-center">
+    <div class="col-md-4">
+      <button type="button" class="btn btn-info" (click) ="goBackToPreviousPage()">Go Back</button>
+    </div>
+    <div class="col-md-4">
+      <button type="button" class="btn btn-warning px-4" [routerLink]="['/edit',currentBlog.blogId]">Edit</button>
+    </div>
+    <div class="col-md-4">
+      <button type="button" class="btn btn-danger" (click)="deleteThisBlog()">Delete</button>
+    </div>
+  </div>
+</div>
